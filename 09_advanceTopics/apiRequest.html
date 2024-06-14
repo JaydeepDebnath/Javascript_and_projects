@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>API Requests</title>
+</head>
+<body>
+    <script>
+        const requestUrl = 'https://randomuser.me/api'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET',requestUrl)
+        xhr.onreadystatechange = function(){  // To track stages use oneReadyStateChange
+            if (xhr.readyState === 4) {
+                const data = JSON.parse(this.responseText)  //  we can convert property to using Number(),String().. JSON is a format(one type of object) '.parse' - convert string to object(JSON)
+                console.log(data);
+                console.log(data.results);  // to use this perticular object's responseText ue use this
+            }
+        }
+        xhr.send()
+    </script>
+    
+</body>
+</html>
